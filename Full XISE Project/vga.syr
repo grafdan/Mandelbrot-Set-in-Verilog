@@ -1,0 +1,803 @@
+Release 13.1 - xst O.40d (nt)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.17 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.18 secs
+ 
+--> Reading design: vga.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "vga.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "vga"
+Output Format                      : NGC
+Target Device                      : xc3s200-4-ft256
+
+---- Source Options
+Top Module Name                    : vga
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "iteration.v" in library work
+Compiling verilog file "video_clk.v" in library work
+Module <iteration> compiled
+Compiling verilog file "ram.v" in library work
+Module <video_clk> compiled
+Compiling verilog file "mandelbrot.v" in library work
+Module <ram> compiled
+Compiling verilog file "vga.v" in library work
+Module <mandelbrot> compiled
+Module <vga> compiled
+No errors in compilation
+Analysis of file <"vga.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <vga> in library <work> with parameters.
+	HBP = "0000110000"
+	HD = "1010000000"
+	HFP = "0000010000"
+	HS = "0001100000"
+	VBP = "0000100001"
+	VD = "0111100000"
+	VFP = "0000001010"
+	VS = "0000000010"
+
+Analyzing hierarchy for module <video_clk> in library <work>.
+
+Analyzing hierarchy for module <ram> in library <work>.
+
+Analyzing hierarchy for module <mandelbrot> in library <work> with parameters.
+	direction_shift = "00000000000000000000000000001010"
+	fraction = "00000000000000000000000000010100"
+	max_iter = "00000000000000000000000000100000"
+	one = "00000000000100000000000000000000"
+	prepare = "00000000000000000000000000001010"
+	unit = "00000000000000000000000001000000"
+	unitlen = "00000000000000000000000000000110"
+
+Analyzing hierarchy for module <iteration> in library <work> with parameters.
+	fraction = "00000000000000000000000000010100"
+	one = "00000000000100000000000000000000"
+	prepare = "00000000000000000000000000001010"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <vga>.
+	HBP = 10'b0000110000
+	HD = 10'b1010000000
+	HFP = 10'b0000010000
+	HS = 10'b0001100000
+	VBP = 10'b0000100001
+	VD = 10'b0111100000
+	VFP = 10'b0000001010
+	VS = 10'b0000000010
+Module <vga> is correct for synthesis.
+ 
+Analyzing module <video_clk> in library <work>.
+Module <video_clk> is correct for synthesis.
+ 
+Analyzing module <ram> in library <work>.
+Module <ram> is correct for synthesis.
+ 
+Analyzing module <mandelbrot> in library <work>.
+	direction_shift = 32'sb00000000000000000000000000001010
+	fraction = 32'sb00000000000000000000000000010100
+	max_iter = 32'sb00000000000000000000000000100000
+	one = 32'b00000000000100000000000000000000
+	prepare = 32'sb00000000000000000000000000001010
+	unit = 32'b00000000000000000000000001000000
+	unitlen = 32'sb00000000000000000000000000000110
+Module <mandelbrot> is correct for synthesis.
+ 
+Analyzing module <iteration> in library <work>.
+	fraction = 32'sb00000000000000000000000000010100
+	one = 32'b00000000000100000000000000000000
+	prepare = 32'sb00000000000000000000000000001010
+Module <iteration> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+INFO:Xst:2679 - Register <ram_chipenable> in unit <ram> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <ram_output> in unit <ram> has a constant value of 0 during circuit operation. The register is replaced by logic.
+
+Synthesizing Unit <video_clk>.
+    Related source file is "video_clk.v".
+    Found 1-bit register for signal <clk_count>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <video_clk> synthesized.
+
+
+Synthesizing Unit <ram>.
+    Related source file is "ram.v".
+    Found 1-bit register for signal <ram_upperbyte>.
+    Found 1-bit register for signal <ram_write>.
+    Found 1-bit register for signal <ram_lowerbyte>.
+    Found 3-bit register for signal <read_data>.
+    Found 6-bit tristate buffer for signal <ram_data>.
+    Found 18-bit register for signal <ram_addr>.
+    Found 1-bit register for signal <fsm>.
+    Found 3-bit register for signal <loc_write_data>.
+    Found 1-bit register for signal <send_data>.
+    Summary:
+	inferred  29 D-type flip-flop(s).
+	inferred   6 Tristate(s).
+Unit <ram> synthesized.
+
+
+Synthesizing Unit <iteration>.
+    Related source file is "iteration.v".
+WARNING:Xst:647 - Input <zi<9:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <zr<9:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:643 - "iteration.v" line 46: The result of a 32x32-bit multiplication is partially used. Only the 32 least significant bits are used. If you are doing this on purpose, you may safely ignore this warning. Otherwise, make sure you are not losing information, leading to unexpected circuit behavior.
+WARNING:Xst:643 - "iteration.v" line 46: The result of a 32x32-bit multiplication is partially used. Only the 32 least significant bits are used. If you are doing this on purpose, you may safely ignore this warning. Otherwise, make sure you are not losing information, leading to unexpected circuit behavior.
+WARNING:Xst:643 - "iteration.v" line 47: The result of a 32x32-bit multiplication is partially used. Only the 32 least significant bits are used. If you are doing this on purpose, you may safely ignore this warning. Otherwise, make sure you are not losing information, leading to unexpected circuit behavior.
+WARNING:Xst:643 - "iteration.v" line 51: The result of a 32x32-bit multiplication is partially used. Only the 32 least significant bits are used. If you are doing this on purpose, you may safely ignore this warning. Otherwise, make sure you are not losing information, leading to unexpected circuit behavior.
+WARNING:Xst:643 - "iteration.v" line 51: The result of a 32x32-bit multiplication is partially used. Only the 32 least significant bits are used. If you are doing this on purpose, you may safely ignore this warning. Otherwise, make sure you are not losing information, leading to unexpected circuit behavior.
+    Found 32-bit adder for signal <nzi>.
+    Found 32-bit adder for signal <nzr>.
+    Found 32x32-bit multiplier for signal <nzi$mult0001> created at line 47.
+    Found 32-bit subtractor for signal <nzr$addsub0000> created at line 46.
+    Found 32x32-bit multiplier for signal <nzr$mult0002> created at line 46.
+    Found 32x32-bit multiplier for signal <nzr$mult0003> created at line 46.
+    Found 32-bit adder for signal <z1a>.
+    Found 32x32-bit multiplier for signal <z1a$mult0002> created at line 51.
+    Found 32x32-bit multiplier for signal <z1a$mult0003> created at line 51.
+    Found 32-bit comparator greater for signal <z1b$cmp_gt0000> created at line 52.
+    Summary:
+	inferred   4 Adder/Subtractor(s).
+	inferred   5 Multiplier(s).
+	inferred   1 Comparator(s).
+Unit <iteration> synthesized.
+
+
+Synthesizing Unit <mandelbrot>.
+    Related source file is "mandelbrot.v".
+WARNING:Xst:646 - Signal <y> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <x> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 19-bit register for signal <write_address>.
+    Found 3-bit register for signal <write_data>.
+    Found 1-bit register for signal <write_enable>.
+    Found 32-bit register for signal <ci>.
+    Found 32-bit register for signal <cr>.
+    Found 6-bit up counter for signal <iter_counter>.
+    Found 1-bit register for signal <lfinished>.
+    Found 1-bit register for signal <new_pixel>.
+    Found 5-bit adder for signal <old_cr_13$sub0000> created at line 96.
+    Found 10-bit comparator greatequal for signal <old_posx_9$cmp_ge0000> created at line 87.
+    Found 10-bit adder for signal <old_posy_8$addsub0000> created at line 85.
+    Found 10-bit comparator greatequal for signal <old_posy_8$cmp_ge0000> created at line 82.
+    Found 10-bit subtractor for signal <old_xoffset_5$sub0000> created at line 52.
+    Found 10-bit adder for signal <old_yoffset_6$addsub0000> created at line 54.
+    Found 10-bit register for signal <posx>.
+    Found 10-bit register for signal <posy>.
+    Found 3-bit register for signal <result>.
+    Found 12-bit subtractor for signal <x$sub0000> created at line 94.
+    Found 10-bit register for signal <xoffset>.
+    Found 10-bit adder for signal <xoffset$addsub0000> created at line 53.
+    Found 12-bit subtractor for signal <y$sub0000> created at line 95.
+    Found 10-bit register for signal <yoffset>.
+    Found 10-bit subtractor for signal <yoffset$addsub0000> created at line 55.
+    Found 32-bit register for signal <zi>.
+    Found 32-bit register for signal <zr>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred 196 D-type flip-flop(s).
+	inferred   9 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+	inferred   2 Combinational logic shifter(s).
+Unit <mandelbrot> synthesized.
+
+
+Synthesizing Unit <vga>.
+    Related source file is "vga.v".
+WARNING:Xst:646 - Signal <shift> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 1-bit register for signal <hsync>.
+    Found 1-bit register for signal <vsync>.
+    Found 10-bit comparator greatequal for signal <hsync$cmp_le0000> created at line 42.
+    Found 10-bit comparator less for signal <hsync$cmp_lt0000> created at line 42.
+    Found 10-bit adder for signal <old_posy_2$addsub0000> created at line 48.
+    Found 10-bit up counter for signal <posx>.
+    Found 10-bit register for signal <posy>.
+    Found 1-bit register for signal <syncing>.
+    Found 10-bit comparator greatequal for signal <syncing$cmp_ge0000> created at line 60.
+    Found 10-bit comparator greatequal for signal <syncing$cmp_ge0001> created at line 60.
+    Found 10-bit comparator greater for signal <vsync$cmp_lt0000> created at line 52.
+    Found 10-bit comparator less for signal <vsync$cmp_lt0001> created at line 52.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   3 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   6 Comparator(s).
+Unit <vga> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 5
+ 32x32-bit multiplier                                  : 5
+# Adders/Subtractors                                   : 15
+ 10-bit adder                                          : 6
+ 10-bit subtractor                                     : 2
+ 12-bit subtractor                                     : 2
+ 32-bit adder                                          : 3
+ 32-bit subtractor                                     : 1
+ 5-bit adder                                           : 1
+# Counters                                             : 2
+ 10-bit up counter                                     : 1
+ 6-bit up counter                                      : 1
+# Registers                                            : 27
+ 1-bit register                                        : 12
+ 10-bit register                                       : 5
+ 18-bit register                                       : 1
+ 19-bit register                                       : 1
+ 3-bit register                                        : 4
+ 32-bit register                                       : 4
+# Comparators                                          : 9
+ 10-bit comparator greatequal                          : 5
+ 10-bit comparator greater                             : 1
+ 10-bit comparator less                                : 2
+ 32-bit comparator greater                             : 1
+# Logic shifters                                       : 2
+ 32-bit shifter logical left                           : 2
+# Tristates                                            : 1
+ 6-bit tristate buffer                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:2677 - Node <zr_0> of sequential type is unconnected in block <mandel>.
+WARNING:Xst:2677 - Node <zr_1> of sequential type is unconnected in block <mandel>.
+WARNING:Xst:2677 - Node <zr_2> of sequential type is unconnected in block <mandel>.
+WARNING:Xst:2677 - Node <zr_3> of sequential type is unconnected in block <mandel>.
+WARNING:Xst:2677 - Node <zr_4> of sequential type is unconnected in block <mandel>.
+WARNING:Xst:2677 - Node <zr_5> of sequential type is unconnected in block <mandel>.
+WARNING:Xst:2677 - Node <zr_6> of sequential type is unconnected in block <mandel>.
+WARNING:Xst:2677 - Node <zr_7> of sequential type is unconnected in block <mandel>.
+WARNING:Xst:2677 - Node <zr_8> of sequential type is unconnected in block <mandel>.
+WARNING:Xst:2677 - Node <zr_9> of sequential type is unconnected in block <mandel>.
+WARNING:Xst:2677 - Node <zi_0> of sequential type is unconnected in block <mandel>.
+WARNING:Xst:2677 - Node <zi_1> of sequential type is unconnected in block <mandel>.
+WARNING:Xst:2677 - Node <zi_2> of sequential type is unconnected in block <mandel>.
+WARNING:Xst:2677 - Node <zi_3> of sequential type is unconnected in block <mandel>.
+WARNING:Xst:2677 - Node <zi_4> of sequential type is unconnected in block <mandel>.
+WARNING:Xst:2677 - Node <zi_5> of sequential type is unconnected in block <mandel>.
+WARNING:Xst:2677 - Node <zi_6> of sequential type is unconnected in block <mandel>.
+WARNING:Xst:2677 - Node <zi_7> of sequential type is unconnected in block <mandel>.
+WARNING:Xst:2677 - Node <zi_8> of sequential type is unconnected in block <mandel>.
+WARNING:Xst:2677 - Node <zi_9> of sequential type is unconnected in block <mandel>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 5
+ 22x22-bit multiplier                                  : 5
+# Adders/Subtractors                                   : 15
+ 10-bit adder                                          : 6
+ 10-bit subtractor                                     : 2
+ 12-bit subtractor                                     : 2
+ 32-bit adder                                          : 3
+ 32-bit subtractor                                     : 1
+ 5-bit adder                                           : 1
+# Counters                                             : 2
+ 10-bit up counter                                     : 1
+ 6-bit up counter                                      : 1
+# Registers                                            : 239
+ Flip-Flops                                            : 239
+# Comparators                                          : 9
+ 10-bit comparator greatequal                          : 5
+ 10-bit comparator greater                             : 1
+ 10-bit comparator less                                : 2
+ 32-bit comparator greater                             : 1
+# Logic shifters                                       : 2
+ 32-bit shifter logical left                           : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <vga> ...
+
+Optimizing unit <iteration> ...
+
+Optimizing unit <mandelbrot> ...
+WARNING:Xst:1293 - FF/Latch <xoffset_0> has a constant value of 0 in block <mandelbrot>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <yoffset_0> has a constant value of 0 in block <mandelbrot>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <posy_9> (without init value) has a constant value of 0 in block <mandelbrot>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <posy_9> (without init value) has a constant value of 0 in block <mandelbrot>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <posy_9> (without init value) has a constant value of 0 in block <mandelbrot>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <cr_25> in Unit <mandelbrot> is equivalent to the following 5 FFs/Latches, which will be removed : <cr_26> <cr_27> <cr_28> <cr_29> <cr_30> 
+INFO:Xst:2261 - The FF/Latch <ci_25> in Unit <mandelbrot> is equivalent to the following 5 FFs/Latches, which will be removed : <ci_26> <ci_27> <ci_28> <ci_29> <ci_30> 
+WARNING:Xst:1710 - FF/Latch <posy_9> (without init value) has a constant value of 0 in block <mandelbrot>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <cr_25> in Unit <mandelbrot> is equivalent to the following 5 FFs/Latches, which will be removed : <cr_26> <cr_27> <cr_28> <cr_29> <cr_30> 
+INFO:Xst:2261 - The FF/Latch <ci_25> in Unit <mandelbrot> is equivalent to the following 5 FFs/Latches, which will be removed : <ci_26> <ci_27> <ci_28> <ci_29> <ci_30> 
+WARNING:Xst:2677 - Node <mandel/ci_0> of sequential type is unconnected in block <vga>.
+WARNING:Xst:2677 - Node <mandel/zi_9> of sequential type is unconnected in block <vga>.
+WARNING:Xst:2677 - Node <mandel/zi_8> of sequential type is unconnected in block <vga>.
+WARNING:Xst:2677 - Node <mandel/zi_7> of sequential type is unconnected in block <vga>.
+WARNING:Xst:2677 - Node <mandel/zi_6> of sequential type is unconnected in block <vga>.
+WARNING:Xst:2677 - Node <mandel/zi_5> of sequential type is unconnected in block <vga>.
+WARNING:Xst:2677 - Node <mandel/zi_4> of sequential type is unconnected in block <vga>.
+WARNING:Xst:2677 - Node <mandel/zi_3> of sequential type is unconnected in block <vga>.
+WARNING:Xst:2677 - Node <mandel/zi_2> of sequential type is unconnected in block <vga>.
+WARNING:Xst:2677 - Node <mandel/zi_1> of sequential type is unconnected in block <vga>.
+WARNING:Xst:2677 - Node <mandel/zi_0> of sequential type is unconnected in block <vga>.
+WARNING:Xst:2677 - Node <mandel/zr_9> of sequential type is unconnected in block <vga>.
+WARNING:Xst:2677 - Node <mandel/zr_8> of sequential type is unconnected in block <vga>.
+WARNING:Xst:2677 - Node <mandel/zr_7> of sequential type is unconnected in block <vga>.
+WARNING:Xst:2677 - Node <mandel/zr_6> of sequential type is unconnected in block <vga>.
+WARNING:Xst:2677 - Node <mandel/zr_5> of sequential type is unconnected in block <vga>.
+WARNING:Xst:2677 - Node <mandel/zr_4> of sequential type is unconnected in block <vga>.
+WARNING:Xst:2677 - Node <mandel/zr_3> of sequential type is unconnected in block <vga>.
+WARNING:Xst:2677 - Node <mandel/zr_2> of sequential type is unconnected in block <vga>.
+WARNING:Xst:2677 - Node <mandel/zr_1> of sequential type is unconnected in block <vga>.
+WARNING:Xst:2677 - Node <mandel/zr_0> of sequential type is unconnected in block <vga>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block vga, actual ratio is 36.
+FlipFlop mandel/zi_31 has been replicated 1 time(s)
+FlipFlop mandel/zr_31 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 223
+ Flip-Flops                                            : 223
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : vga.ngr
+Top Level Output File Name         : vga
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 55
+
+Cell Usage :
+# BELS                             : 2828
+#      GND                         : 1
+#      INV                         : 26
+#      LUT1                        : 9
+#      LUT2                        : 489
+#      LUT3                        : 240
+#      LUT3_D                      : 17
+#      LUT3_L                      : 1
+#      LUT4                        : 419
+#      LUT4_D                      : 5
+#      LUT4_L                      : 1
+#      MULT_AND                    : 150
+#      MUXCY                       : 706
+#      MUXF5                       : 58
+#      VCC                         : 1
+#      XORCY                       : 705
+# FlipFlops/Latches                : 223
+#      FD                          : 8
+#      FDC                         : 11
+#      FDCE                        : 40
+#      FDE                         : 153
+#      FDP                         : 3
+#      FDPE                        : 7
+#      FDS                         : 1
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 53
+#      IBUF                        : 11
+#      IOBUF                       : 6
+#      OBUF                        : 36
+# MULTs                            : 9
+#      MULT18X18                   : 9
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s200ft256-4 
+
+ Number of Slices:                      642  out of   1920    33%  
+ Number of Slice Flip Flops:            223  out of   3840     5%  
+ Number of 4 input LUTs:               1207  out of   3840    31%  
+ Number of IOs:                          55
+ Number of bonded IOBs:                  54  out of    173    31%  
+ Number of MULT18X18s:                    9  out of     12    75%  
+ Number of GCLKs:                         2  out of      8    25%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+---------------------------------------------+--------------------------+-------+
+Clock Signal                                 | Clock buffer(FF name)    | Load  |
+---------------------------------------------+--------------------------+-------+
+my_vclk/clk_count1                           | BUFG                     | 175   |
+clk                                          | BUFGP                    | 30    |
+mandel/new_frame(mandel/new_frame_wg_cy<4>:O)| NONE(*)(mandel/yoffset_9)| 18    |
+---------------------------------------------+--------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+reset                              | IBUF                   | 61    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 39.558ns (Maximum Frequency: 25.279MHz)
+   Minimum input arrival time before clock: 10.631ns
+   Maximum output required time after clock: 9.885ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'my_vclk/clk_count1'
+  Clock period: 39.558ns (frequency: 25.279MHz)
+  Total number of paths / destination ports: 9392713812964 / 340
+-------------------------------------------------------------------------
+Delay:               39.558ns (Levels of Logic = 33)
+  Source:            mandel/zr_26 (FF)
+  Destination:       mandel/iter_counter_5 (FF)
+  Source Clock:      my_vclk/clk_count1 rising
+  Destination Clock: my_vclk/clk_count1 rising
+
+  Data Path: mandel/zr_26 to mandel/iter_counter_5
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              6   0.720   1.003  mandel/zr_26 (mandel/zr_26)
+     MULT18X18:A16->P27    1   4.568   0.996  mandel/i_iter/Mmult_nzr_mult0002_submult_0 (mandel/i_iter/Mmult_nzr_mult0002_submult_0_27)
+     LUT2:I1->O            1   0.551   0.000  mandel/i_iter/Mmult_nzr_mult00020_Madd_lut<27> (mandel/i_iter/Mmult_nzr_mult00020_Madd_lut<27>)
+     MUXCY:S->O            1   0.500   0.000  mandel/i_iter/Mmult_nzr_mult00020_Madd_cy<27> (mandel/i_iter/Mmult_nzr_mult00020_Madd_cy<27>)
+     XORCY:CI->O           1   0.904   0.996  mandel/i_iter/Mmult_nzr_mult00020_Madd_xor<28> (mandel/i_iter/Mmult_nzr_mult00020_Madd_28)
+     LUT2:I1->O            1   0.551   0.000  mandel/i_iter/Mmult_nzr_mult00021_Madd_lut<28> (mandel/i_iter/Mmult_nzr_mult00021_Madd_lut<28>)
+     MUXCY:S->O            1   0.500   0.000  mandel/i_iter/Mmult_nzr_mult00021_Madd_cy<28> (mandel/i_iter/Mmult_nzr_mult00021_Madd_cy<28>)
+     XORCY:CI->O           1   0.904   1.140  mandel/i_iter/Mmult_nzr_mult00021_Madd_xor<29> (mandel/i_iter/nzr_mult0002<29>)
+     LUT2:I0->O            1   0.551   0.000  mandel/i_iter/Msub_nzr_addsub0000_lut<29> (mandel/i_iter/Msub_nzr_addsub0000_lut<29>)
+     MUXCY:S->O            1   0.500   0.000  mandel/i_iter/Msub_nzr_addsub0000_cy<29> (mandel/i_iter/Msub_nzr_addsub0000_cy<29>)
+     XORCY:CI->O           1   0.904   0.996  mandel/i_iter/Msub_nzr_addsub0000_xor<30> (mandel/i_iter/nzr_addsub0000<30>)
+     LUT2:I1->O            1   0.551   0.000  mandel/i_iter/Madd_nzr_lut<30> (mandel/i_iter/Madd_nzr_lut<30>)
+     MUXCY:S->O            0   0.500   0.000  mandel/i_iter/Madd_nzr_cy<30> (mandel/i_iter/Madd_nzr_cy<30>)
+     XORCY:CI->O          23   0.904   1.769  mandel/i_iter/Madd_nzr_xor<31> (mandel/nzr<31>)
+     LUT3:I2->O            1   0.551   0.000  mandel/i_iter/Mmult_z1a_mult0002_Madd1_lut<5>1 (mandel/i_iter/Mmult_z1a_mult0002_Madd1_lut<5>)
+     MUXCY:S->O            1   0.500   0.000  mandel/i_iter/Mmult_z1a_mult0002_Madd1_cy<5> (mandel/i_iter/Mmult_z1a_mult0002_Madd1_cy<5>)
+     MUXCY:CI->O           1   0.064   0.000  mandel/i_iter/Mmult_z1a_mult0002_Madd1_cy<6> (mandel/i_iter/Mmult_z1a_mult0002_Madd1_cy<6>)
+     XORCY:CI->O           1   0.904   1.140  mandel/i_iter/Mmult_z1a_mult0002_Madd1_xor<7> (mandel/i_iter/Mmult_z1a_mult0002_Madd_231)
+     LUT2:I0->O            1   0.551   0.000  mandel/i_iter/Mmult_z1a_mult0002_Madd8_lut<7> (mandel/i_iter/Mmult_z1a_mult0002_Madd8_lut<7>)
+     MUXCY:S->O            1   0.500   0.000  mandel/i_iter/Mmult_z1a_mult0002_Madd8_cy<7> (mandel/i_iter/Mmult_z1a_mult0002_Madd8_cy<7>)
+     XORCY:CI->O           1   0.904   0.996  mandel/i_iter/Mmult_z1a_mult0002_Madd8_xor<8> (mandel/i_iter/Mmult_z1a_mult0002_Madd_248)
+     LUT2:I1->O            1   0.551   0.000  mandel/i_iter/Mmult_z1a_mult0002_Madd9_lut<17> (mandel/i_iter/Mmult_z1a_mult0002_Madd9_lut<17>)
+     MUXCY:S->O            1   0.500   0.000  mandel/i_iter/Mmult_z1a_mult0002_Madd9_cy<17> (mandel/i_iter/Mmult_z1a_mult0002_Madd9_cy<17>)
+     XORCY:CI->O           1   0.904   0.996  mandel/i_iter/Mmult_z1a_mult0002_Madd9_xor<18> (mandel/i_iter/Mmult_z1a_mult0002_Madd_259)
+     LUT2:I1->O            1   0.551   0.000  mandel/i_iter/Mmult_z1a_mult0002_Madd11_lut<25> (mandel/i_iter/Mmult_z1a_mult0002_Madd11_lut<25>)
+     MUXCY:S->O            1   0.500   0.000  mandel/i_iter/Mmult_z1a_mult0002_Madd11_cy<25> (mandel/i_iter/Mmult_z1a_mult0002_Madd11_cy<25>)
+     XORCY:CI->O           1   0.904   0.996  mandel/i_iter/Mmult_z1a_mult0002_Madd11_xor<26> (mandel/i_iter/z1a_mult0002<26>)
+     LUT2:I1->O            1   0.551   0.000  mandel/i_iter/Madd_z1a_lut<26> (mandel/i_iter/Madd_z1a_lut<26>)
+     MUXCY:S->O            1   0.500   0.000  mandel/i_iter/Madd_z1a_cy<26> (mandel/i_iter/Madd_z1a_cy<26>)
+     XORCY:CI->O           1   0.904   1.140  mandel/i_iter/Madd_z1a_xor<27> (mandel/i_iter/z1a<27>)
+     LUT4:I0->O            1   0.551   0.000  mandel/i_iter/Mcompar_z1b_cmp_gt0000_lut<8> (mandel/i_iter/Mcompar_z1b_cmp_gt0000_lut<8>)
+     MUXCY:S->O            1   0.500   0.000  mandel/i_iter/Mcompar_z1b_cmp_gt0000_cy<8> (mandel/i_iter/Mcompar_z1b_cmp_gt0000_cy<8>)
+     MUXCY:CI->O           3   0.303   0.933  mandel/i_iter/Mcompar_z1b_cmp_gt0000_cy<9> (mandel/i_iter/Mcompar_z1b_cmp_gt0000_cy<9>)
+     LUT4:I3->O            6   0.551   1.003  mandel/iter_counter_not000138 (mandel/iter_counter_not0001)
+     FDPE:CE                   0.602          mandel/iter_counter_0
+    ----------------------------------------
+    Total                     39.558ns (25.454ns logic, 14.104ns route)
+                                       (64.3% logic, 35.7% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 4.489ns (frequency: 222.767MHz)
+  Total number of paths / destination ports: 34 / 33
+-------------------------------------------------------------------------
+Delay:               4.489ns (Levels of Logic = 1)
+  Source:            graphic_ram/fsm (FF)
+  Destination:       graphic_ram/ram_lowerbyte (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: graphic_ram/fsm to graphic_ram/ram_lowerbyte
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              6   0.720   1.071  graphic_ram/fsm (graphic_ram/fsm)
+     LUT4:I2->O           20   0.551   1.545  graphic_ram/ram_addr_and00001 (graphic_ram/ram_addr_and0000)
+     FDE:CE                    0.602          graphic_ram/ram_addr_0
+    ----------------------------------------
+    Total                      4.489ns (1.873ns logic, 2.616ns route)
+                                       (41.7% logic, 58.3% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'mandel/new_frame'
+  Clock period: 9.632ns (frequency: 103.821MHz)
+  Total number of paths / destination ports: 282 / 19
+-------------------------------------------------------------------------
+Delay:               9.632ns (Levels of Logic = 5)
+  Source:            mandel/yoffset_1 (FF)
+  Destination:       mandel/yoffset_9 (FF)
+  Source Clock:      mandel/new_frame rising
+  Destination Clock: mandel/new_frame rising
+
+  Data Path: mandel/yoffset_1 to mandel/yoffset_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               9   0.720   1.463  mandel/yoffset_1 (mandel/yoffset_1)
+     LUT4:I0->O            8   0.551   1.422  mandel/_old_yoffset_6<7>111 (mandel/N228)
+     LUT3:I0->O            3   0.551   1.102  mandel/_old_yoffset_6<7>12 (mandel/N114)
+     LUT4:I1->O            1   0.551   0.827  mandel/_old_yoffset_6<9>_SW0 (N26)
+     LUT4:I3->O            1   0.551   1.140  mandel/_old_yoffset_6<9> (mandel/_old_yoffset_6<9>)
+     LUT4:I0->O            1   0.551   0.000  mandel/yoffset_mux0000<9> (mandel/yoffset_mux0000<9>)
+     FD:D                      0.203          mandel/yoffset_9
+    ----------------------------------------
+    Total                      9.632ns (3.678ns logic, 5.954ns route)
+                                       (38.2% logic, 61.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 95 / 51
+-------------------------------------------------------------------------
+Offset:              5.768ns (Levels of Logic = 2)
+  Source:            reset (PAD)
+  Destination:       graphic_ram/ram_lowerbyte (FF)
+  Destination Clock: clk rising
+
+  Data Path: reset to graphic_ram/ram_lowerbyte
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            67   0.821   2.249  reset_IBUF (reset_IBUF)
+     LUT4:I1->O           20   0.551   1.545  graphic_ram/ram_addr_and00001 (graphic_ram/ram_addr_and0000)
+     FDE:CE                    0.602          graphic_ram/ram_addr_0
+    ----------------------------------------
+    Total                      5.768ns (1.974ns logic, 3.794ns route)
+                                       (34.2% logic, 65.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'my_vclk/clk_count1'
+  Total number of paths / destination ports: 1505 / 223
+-------------------------------------------------------------------------
+Offset:              10.631ns (Levels of Logic = 6)
+  Source:            switches<4> (PAD)
+  Destination:       mandel/zi_19 (FF)
+  Destination Clock: my_vclk/clk_count1 rising
+
+  Data Path: switches<4> to mandel/zi_19
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           102   0.821   2.593  switches_4_IBUF (switches_4_IBUF)
+     LUT3_D:I0->O          2   0.551   1.072  mandel/Sh14321 (mandel/N94)
+     LUT3:I1->O            3   0.551   1.102  mandel/zi_mux0000<11>21 (mandel/N48)
+     LUT4:I1->O            1   0.551   1.140  mandel/Sh17917 (mandel/Sh17917)
+     LUT3:I0->O            2   0.551   0.945  mandel/Sh17929 (mandel/Sh179)
+     LUT3:I2->O            1   0.551   0.000  mandel/zi_mux0000<19>1 (mandel/zi_mux0000<19>)
+     FDE:D                     0.203          mandel/zi_19
+    ----------------------------------------
+    Total                     10.631ns (3.779ns logic, 6.852ns route)
+                                       (35.5% logic, 64.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'mandel/new_frame'
+  Total number of paths / destination ports: 100 / 28
+-------------------------------------------------------------------------
+Offset:              9.456ns (Levels of Logic = 6)
+  Source:            buttons<1> (PAD)
+  Destination:       mandel/yoffset_9 (FF)
+  Destination Clock: mandel/new_frame rising
+
+  Data Path: buttons<1> to mandel/yoffset_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            12   0.821   1.186  buttons_1_IBUF (buttons_1_IBUF)
+     LUT4:I2->O            8   0.551   1.422  mandel/_old_yoffset_6<7>111 (mandel/N228)
+     LUT3:I0->O            3   0.551   1.102  mandel/_old_yoffset_6<7>12 (mandel/N114)
+     LUT4:I1->O            1   0.551   0.827  mandel/_old_yoffset_6<9>_SW0 (N26)
+     LUT4:I3->O            1   0.551   1.140  mandel/_old_yoffset_6<9> (mandel/_old_yoffset_6<9>)
+     LUT4:I0->O            1   0.551   0.000  mandel/yoffset_mux0000<9> (mandel/yoffset_mux0000<9>)
+     FD:D                      0.203          mandel/yoffset_9
+    ----------------------------------------
+    Total                      9.456ns (3.779ns logic, 5.677ns route)
+                                       (40.0% logic, 60.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'my_vclk/clk_count1'
+  Total number of paths / destination ports: 13 / 13
+-------------------------------------------------------------------------
+Offset:              9.885ns (Levels of Logic = 2)
+  Source:            syncing (FF)
+  Destination:       blue (PAD)
+  Source Clock:      my_vclk/clk_count1 rising
+
+  Data Path: syncing to blue
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDPE:C->Q            28   0.720   2.169  syncing (syncing)
+     LUT2:I0->O            1   0.551   0.801  red1 (red_OBUF)
+     OBUF:I->O                 5.644          red_OBUF (red)
+    ----------------------------------------
+    Total                      9.885ns (6.915ns logic, 2.970ns route)
+                                       (70.0% logic, 30.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 36 / 30
+-------------------------------------------------------------------------
+Offset:              9.038ns (Levels of Logic = 2)
+  Source:            graphic_ram/send_data (FF)
+  Destination:       ram_data<5> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: graphic_ram/send_data to ram_data<5>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.720   0.877  graphic_ram/send_data (graphic_ram/send_data)
+     INV:I->O              6   0.551   1.003  graphic_ram/send_data_inv1_INV_0 (graphic_ram/send_data_inv)
+     IOBUF:T->IO               5.887          ram_data_3_IOBUF (ram_data<3>)
+    ----------------------------------------
+    Total                      9.038ns (7.158ns logic, 1.880ns route)
+                                       (79.2% logic, 20.8% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 27.00 secs
+Total CPU time to Xst completion: 26.30 secs
+ 
+--> 
+
+Total memory usage is 150108 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   57 (   0 filtered)
+Number of infos    :    7 (   0 filtered)
+

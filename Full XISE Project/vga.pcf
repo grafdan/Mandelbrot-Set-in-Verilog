@@ -1,0 +1,63 @@
+//! **************************************************************************
+// Written by: Map O.40d on Fri Jun 03 12:40:47 2011
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "ram_output" LOCATE = SITE "K4" LEVEL 1;
+COMP "clk" LOCATE = SITE "T9" LEVEL 1;
+COMP "red" LOCATE = SITE "R12" LEVEL 1;
+COMP "ram_lowerbyte" LOCATE = SITE "P5" LEVEL 1;
+COMP "blue" LOCATE = SITE "R11" LEVEL 1;
+COMP "switches<1>" LOCATE = SITE "G12" LEVEL 1;
+COMP "switches<2>" LOCATE = SITE "H14" LEVEL 1;
+COMP "switches<3>" LOCATE = SITE "H13" LEVEL 1;
+COMP "switches<4>" LOCATE = SITE "J14" LEVEL 1;
+COMP "switches<5>" LOCATE = SITE "J13" LEVEL 1;
+COMP "switches<6>" LOCATE = SITE "K14" LEVEL 1;
+COMP "switches<7>" LOCATE = SITE "K13" LEVEL 1;
+COMP "green" LOCATE = SITE "T12" LEVEL 1;
+COMP "ram_upperbyte" LOCATE = SITE "R4" LEVEL 1;
+COMP "reset" LOCATE = SITE "F12" LEVEL 1;
+COMP "ram_chipenable" LOCATE = SITE "N5" LEVEL 1;
+COMP "hsync" LOCATE = SITE "R9" LEVEL 1;
+COMP "ram_write" LOCATE = SITE "G3" LEVEL 1;
+COMP "deb<0>" LOCATE = SITE "K12" LEVEL 1;
+COMP "deb<1>" LOCATE = SITE "P14" LEVEL 1;
+COMP "deb<2>" LOCATE = SITE "L12" LEVEL 1;
+COMP "deb<3>" LOCATE = SITE "N14" LEVEL 1;
+COMP "deb<4>" LOCATE = SITE "P13" LEVEL 1;
+COMP "deb<5>" LOCATE = SITE "N12" LEVEL 1;
+COMP "deb<6>" LOCATE = SITE "P12" LEVEL 1;
+COMP "deb<7>" LOCATE = SITE "P11" LEVEL 1;
+COMP "ram_addr<10>" LOCATE = SITE "F4" LEVEL 1;
+COMP "ram_addr<11>" LOCATE = SITE "F3" LEVEL 1;
+COMP "ram_addr<12>" LOCATE = SITE "G4" LEVEL 1;
+COMP "ram_addr<13>" LOCATE = SITE "L4" LEVEL 1;
+COMP "ram_addr<14>" LOCATE = SITE "M3" LEVEL 1;
+COMP "ram_addr<15>" LOCATE = SITE "M4" LEVEL 1;
+COMP "ram_addr<16>" LOCATE = SITE "N3" LEVEL 1;
+COMP "ram_addr<17>" LOCATE = SITE "L5" LEVEL 1;
+COMP "vsync" LOCATE = SITE "T10" LEVEL 1;
+COMP "ram_addr<0>" LOCATE = SITE "L3" LEVEL 1;
+COMP "ram_addr<1>" LOCATE = SITE "K5" LEVEL 1;
+COMP "ram_addr<2>" LOCATE = SITE "K3" LEVEL 1;
+COMP "ram_addr<3>" LOCATE = SITE "J3" LEVEL 1;
+COMP "ram_addr<4>" LOCATE = SITE "J4" LEVEL 1;
+COMP "ram_addr<5>" LOCATE = SITE "H4" LEVEL 1;
+COMP "ram_addr<6>" LOCATE = SITE "H3" LEVEL 1;
+COMP "ram_addr<7>" LOCATE = SITE "G5" LEVEL 1;
+COMP "ram_addr<8>" LOCATE = SITE "E4" LEVEL 1;
+COMP "ram_addr<9>" LOCATE = SITE "E3" LEVEL 1;
+COMP "ram_data<0>" LOCATE = SITE "P2" LEVEL 1;
+COMP "ram_data<1>" LOCATE = SITE "N2" LEVEL 1;
+COMP "ram_data<2>" LOCATE = SITE "M2" LEVEL 1;
+COMP "ram_data<3>" LOCATE = SITE "D2" LEVEL 1;
+COMP "ram_data<4>" LOCATE = SITE "E2" LEVEL 1;
+COMP "ram_data<5>" LOCATE = SITE "G1" LEVEL 1;
+COMP "buttons<0>" LOCATE = SITE "M13" LEVEL 1;
+COMP "buttons<1>" LOCATE = SITE "M14" LEVEL 1;
+COMP "buttons<2>" LOCATE = SITE "L13" LEVEL 1;
+COMP "buttons<3>" LOCATE = SITE "L14" LEVEL 1;
+NET "clk_BUFGP/IBUFG" BEL "clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+SCHEMATIC END;
+

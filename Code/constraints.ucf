@@ -1,0 +1,65 @@
+NET "clk" LOC = "T9";
+
+NET "buttons[3]" LOC = "L14"; //knoepfe
+NET "buttons[2]" LOC = "L13";
+NET "buttons[1]" LOC = "M14";
+NET "buttons[0]" LOC = "M13";
+
+NET "switches[7]" LOC = "K13"; // Schalter
+NET "switches[6]" LOC = "K14";
+NET "switches[5]" LOC = "J13";
+NET "switches[4]" LOC = "J14";
+NET "switches[3]" LOC = "H13";
+NET "switches[2]" LOC = "H14";
+NET "switches[1]" LOC = "G12";
+NET "reset" LOC = "F12"; // Schalter ganz recht
+
+//VGA-pins
+NET "red" LOC = "R12";
+NET "green" LOC = "T12";
+NET "blue" LOC = "R11";
+NET "hsync" LOC = "R9";
+NET "vsync" LOC = "T10";
+	 
+NET "ram_chipenable" LOC = "N5";
+NET "ram_write" LOC = "G3";
+NET "ram_output" LOC = "K4";
+
+NET "ram_upperbyte" LOC = "R4";
+NET "ram_lowerbyte" LOC = "P5";
+
+NET "ram_data[0]" LOC = "P2"; //Ram_data_ports (lowerbyte)
+NET "ram_data[1]" LOC = "N2";
+NET "ram_data[2]" LOC = "M2";
+
+NET "ram_data[3]" LOC = "D2"; //Ram_data_ports (upperbyte)
+NET "ram_data[4]" LOC = "E2";
+NET "ram_data[5]" LOC = "G1";
+
+NET "ram_addr[0]" LOC = "L3";
+NET "ram_addr[1]" LOC = "K5";
+NET "ram_addr[2]" LOC = "K3";
+NET "ram_addr[3]" LOC = "J3";
+NET "ram_addr[4]" LOC = "J4";
+NET "ram_addr[5]" LOC = "H4";
+NET "ram_addr[6]" LOC = "H3";
+NET "ram_addr[7]" LOC = "G5";
+NET "ram_addr[8]" LOC = "E4";
+NET "ram_addr[9]" LOC = "E3";
+NET "ram_addr[10]" LOC = "F4";
+NET "ram_addr[11]" LOC = "F3";
+NET "ram_addr[12]" LOC = "G4";
+NET "ram_addr[13]" LOC = "L4";
+NET "ram_addr[14]" LOC = "M3";
+NET "ram_addr[15]" LOC = "M4";
+NET "ram_addr[16]" LOC = "N3";
+NET "ram_addr[17]" LOC = "L5";
+
+NET "deb[7]" LOC = "P11";
+NET "deb[6]" LOC = "P12";
+NET "deb[5]" LOC = "N12";
+NET "deb[4]" LOC = "P13";
+NET "deb[3]" LOC = "N14";
+NET "deb[2]" LOC = "L12";
+NET "deb[1]" LOC = "P14";
+NET "deb[0]" LOC = "K12";

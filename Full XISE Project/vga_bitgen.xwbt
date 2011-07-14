@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Dokumente und Einstellungen\Serge\Desktop\mandelbrot-v5\vga.ncd
+OUTFILE=C:\Dokumente und Einstellungen\Serge\Desktop\mandelbrot-v5\vga.bit
+FAMILY=Spartan3
+PART=xc3s200-4ft256
+WORKINGDIR=C:\Dokumente und Einstellungen\Serge\Desktop\mandelbrot-v5
+LICENSE=WebPack
+USER_INFO=206282970_0_0_558

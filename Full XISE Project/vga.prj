@@ -1,0 +1,5 @@
+verilog work "iteration.v"
+verilog work "video_clk.v"
+verilog work "ram.v"
+verilog work "mandelbrot.v"
+verilog work "vga.v"

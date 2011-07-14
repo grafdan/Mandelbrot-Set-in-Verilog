@@ -1,0 +1,390 @@
+Release 13.1 - xst O.40d (nt)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.18 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.18 secs
+ 
+--> Reading design: ram.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "ram.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "ram"
+Output Format                      : NGC
+Target Device                      : xc3s200-4-ft256
+
+---- Source Options
+Top Module Name                    : ram
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "ram.v" in library work
+Module <ram> compiled
+No errors in compilation
+Analysis of file <"ram.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <ram> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <ram>.
+Module <ram> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+INFO:Xst:2679 - Register <ram_chipenable> in unit <ram> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <ram_output> in unit <ram> has a constant value of 0 during circuit operation. The register is replaced by logic.
+
+Synthesizing Unit <ram>.
+    Related source file is "ram.v".
+    Found 3-bit tristate buffer for signal <ram_data>.
+    Found 1-bit register for signal <ram_write>.
+    Found 3-bit register for signal <read_data>.
+    Found 1-bit register for signal <fsm>.
+    Found 1-bit register for signal <send_data>.
+    Summary:
+	inferred   6 D-type flip-flop(s).
+	inferred   3 Tristate(s).
+Unit <ram> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 4
+ 1-bit register                                        : 3
+ 3-bit register                                        : 1
+# Tristates                                            : 1
+ 3-bit tristate buffer                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 6
+ Flip-Flops                                            : 6
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <send_data> in Unit <ram> is equivalent to the following FF/Latch, which will be removed : <fsm> 
+
+Optimizing unit <ram> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block ram, actual ratio is 0.
+FlipFlop send_data has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 6
+ Flip-Flops                                            : 6
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : ram.ngr
+Top Level Output File Name         : ram
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 73
+
+Cell Usage :
+# BELS                             : 23
+#      GND                         : 1
+#      INV                         : 1
+#      LUT2                        : 1
+#      LUT3                        : 20
+# FlipFlops/Latches                : 6
+#      FDC                         : 2
+#      FDCE                        : 3
+#      FDP                         : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 72
+#      IBUF                        : 43
+#      IOBUF                       : 3
+#      OBUF                        : 26
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s200ft256-4 
+
+ Number of Slices:                       12  out of   1920     0%  
+ Number of Slice Flip Flops:              3  out of   3840     0%  
+ Number of 4 input LUTs:                 22  out of   3840     0%  
+ Number of IOs:                          73
+ Number of bonded IOBs:                  73  out of    173    42%  
+    IOB Flip Flops:                       3
+ Number of GCLKs:                         1  out of      8    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 6     |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+reset                              | IBUF                   | 6     |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 3.757ns (Maximum Frequency: 266.170MHz)
+   Minimum input arrival time before clock: 2.715ns
+   Maximum output required time after clock: 9.570ns
+   Maximum combinational path delay: 8.889ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 3.757ns (frequency: 266.170MHz)
+  Total number of paths / destination ports: 6 / 6
+-------------------------------------------------------------------------
+Delay:               3.757ns (Levels of Logic = 1)
+  Source:            send_data_1 (FF)
+  Destination:       read_data_0 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: send_data_1 to read_data_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              1   0.720   0.801  send_data_1 (send_data_1)
+     INV:I->O              8   0.551   1.083  send_data_inv1_INV_0 (fsm_inv)
+     FDCE:CE                   0.602          read_data_0
+    ----------------------------------------
+    Total                      3.757ns (1.873ns logic, 1.884ns route)
+                                       (49.9% logic, 50.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 4 / 4
+-------------------------------------------------------------------------
+Offset:              2.715ns (Levels of Logic = 2)
+  Source:            write_enable (PAD)
+  Destination:       ram_write (FF)
+  Destination Clock: clk rising
+
+  Data Path: write_enable to ram_write
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   0.821   1.140  write_enable_IBUF (write_enable_IBUF)
+     LUT2:I0->O            1   0.551   0.000  ram_write_mux00001 (ram_write_mux0000)
+     FDP:D                     0.203          ram_write
+    ----------------------------------------
+    Total                      2.715ns (1.575ns logic, 1.140ns route)
+                                       (58.0% logic, 42.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 27 / 27
+-------------------------------------------------------------------------
+Offset:              9.570ns (Levels of Logic = 2)
+  Source:            send_data (FF)
+  Destination:       ram_upperbyte (PAD)
+  Source Clock:      clk rising
+
+  Data Path: send_data to ram_upperbyte
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             21   0.720   1.854  send_data (send_data)
+     LUT3:I0->O            1   0.551   0.801  ram_addr<9>1 (ram_addr_9_OBUF)
+     OBUF:I->O                 5.644          ram_addr_9_OBUF (ram_addr<9>)
+    ----------------------------------------
+    Total                      9.570ns (6.915ns logic, 2.655ns route)
+                                       (72.3% logic, 27.7% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 43 / 23
+-------------------------------------------------------------------------
+Delay:               8.889ns (Levels of Logic = 3)
+  Source:            read_addr<0> (PAD)
+  Destination:       ram_upperbyte (PAD)
+
+  Data Path: read_addr<0> to ram_upperbyte
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   0.821   1.072  read_addr_0_IBUF (read_addr_0_IBUF)
+     LUT3:I1->O            1   0.551   0.801  ram_upperbyte1 (ram_upperbyte_OBUF)
+     OBUF:I->O                 5.644          ram_upperbyte_OBUF (ram_upperbyte)
+    ----------------------------------------
+    Total                      8.889ns (7.016ns logic, 1.873ns route)
+                                       (78.9% logic, 21.1% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 6.05 secs
+ 
+--> 
+
+Total memory usage is 132864 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
+
